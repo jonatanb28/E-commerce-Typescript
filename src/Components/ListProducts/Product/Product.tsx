@@ -1,21 +1,23 @@
 import { Card, Button } from 'react-bootstrap'
 import './styless.css'
+import { ProductItem } from '../../../types/typeApp'
 
 type Props = {
-    
+    product: ProductItem;
+    handleAddToCart: (product: ProductItem)=> void;
 }
 
-const Product = () => {
+const Product = ({product, handleAddToCart}: Props) => {
   return (
-    <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" />
+    <Card style={{ width: '15rem', margin: '10px' }}>
+        <Card.Img variant="top" src={product.image} className='card-img'/>
         <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
+            <Card.Title className='card-title'>{product.title}</Card.Title>
+            <Card.Text className='card-description'>
+              {product.description}
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            Precio: ${product.price}
+            <Button variant="primary" onClick={() => handleAddToCart(product)}>Agregar al carrito</Button>
         </Card.Body>
     </Card>
   )

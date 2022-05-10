@@ -1,13 +1,14 @@
 export type ProductFetch = {
-    products: ProdutItem[],
+    products: ProductItem[],
     isLoading: boolean,
     isError: boolean
 }
 
-export type ProdutItem = {
+export type ProductItem = {
     id: number;
     category: string;
     title: string;
     image: string;
     price: number;
+    description: string;
 }

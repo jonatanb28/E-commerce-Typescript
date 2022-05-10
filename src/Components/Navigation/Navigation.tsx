@@ -3,10 +3,14 @@ import { Route, Routes } from 'react-router-dom';
 import Home from "../../Pages/Home/Home";
 import Checkout from "../../Pages/Checkout";
 
-const Navigation = () => {
+type Props = {
+  handleOpen: (state: boolean) => void
+}
+
+const Navigation = ({ handleOpen }: Props) => {
   return (
     <>
-      <NavBar />
+      <NavBar handleOpen={ handleOpen }/>
    
         <Routes>
           <Route path='/' element={<Home/>} />

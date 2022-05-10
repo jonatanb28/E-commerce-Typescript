@@ -1,7 +1,13 @@
-import {Container, Nav, Navbar} from 'react-bootstrap'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {Badge, Container, Nav, Navbar} from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
-const NavBar = () => {
+type Props = {
+  handleOpen: (state: boolean) => void
+}
+
+const NavBar = ({ handleOpen }: Props) => {
   return (
     <div>
         <Navbar bg="light" expand="lg">
@@ -13,6 +19,13 @@ const NavBar = () => {
                     <Link className='nav-link' to='/'>Home</Link>
                 </Nav>
                 </Navbar.Collapse>
+                <FontAwesomeIcon 
+                icon={faShoppingCart}
+                color='black'
+                size='lg'
+                style={{cursor: 'pointer'}}
+                onClick={() => handleOpen(true)} />
+                <Badge bg='dark'>0</Badge>
             </Container>
         </Navbar>
     </div>
